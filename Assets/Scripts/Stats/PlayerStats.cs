@@ -5,11 +5,13 @@ using UnityEngine;
 /* Handles the players stats and adds/removes modifiers when equipping items. */
 
 public class PlayerStats : CharacterStats {
-
+	public bool onFountain;
 	// Use this for initialization
 	void Start () {
 		EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
 	}
+
+
 	
 	// Called when an item gets equipped/unequipped
 	void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
@@ -30,6 +32,7 @@ public class PlayerStats : CharacterStats {
 		
 	}
 
+	
 	public override void Die()
 	{
 		base.Die();

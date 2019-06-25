@@ -13,6 +13,8 @@ public class EnemyStats : CharacterStats {
 		// Add ragdoll effect / death animation
 
 		Destroy(gameObject);
+		Debug.Log("Dieded");
+		
 	}
 
 }

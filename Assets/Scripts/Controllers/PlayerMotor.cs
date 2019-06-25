@@ -7,10 +7,11 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMotor : MonoBehaviour {
-
+	public bool onFountain;
 	Transform target;		// Target to follow
 	NavMeshAgent agent;		// Reference to our agent
-
+	CharacterStats myStatus;
+	CharacterStats playerStats;
 	// Get references
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
@@ -25,6 +26,11 @@ public class PlayerMotor : MonoBehaviour {
 			agent.SetDestination(target.position);
 			FaceTarget();
 		}
+		if(onFountain==true)
+		{
+			playerStats.Heal(2);
+		}
+		else playerStats.Heal(0);
 	}
 	
 	public void MoveToPoint (Vector3 point)
@@ -57,5 +63,18 @@ public class PlayerMotor : MonoBehaviour {
 		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0f, direction.z));
 		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 	}
-
+	void OnTriggerEnter(Collider other)
+	{
+		if(other.tag=="HealFountain")
+		{
+			onFountain=true;
+		}
+	}
+	void OnTriggerExit(Collider other)
+	{
+		if(other.tag=="HealFountain")
+		{
+			onFountain=false;
+		}
+	}
 }
