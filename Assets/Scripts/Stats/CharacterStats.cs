@@ -12,10 +12,10 @@ public class CharacterStats : MonoBehaviour {
 	public Stat armor;
 
     public event System.Action<int, int> OnHealthChanged;
-
-	// Set current health to max health
-	// when starting the game.
-	void Awake ()
+    public event System.Action<int, int> OnUIChange;
+    // Set current health to max health
+    // when starting the game.
+    void Awake ()
 	{
 		currentHealth = maxHealth;
 	}
@@ -42,7 +42,11 @@ public class CharacterStats : MonoBehaviour {
 			Die();
 		}
 	}
-	public void Heal(int amount)
+    public virtual void ChangeUi()
+    {
+        OnUIChange(maxHealth,currentHealth);
+    }
+    public void Heal(int amount)
 	{
 		if(currentHealth<=maxHealth)
 		currentHealth+=amount;

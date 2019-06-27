@@ -10,8 +10,8 @@ public class PlayerMotor : MonoBehaviour {
 	public bool onFountain;
 	Transform target;		// Target to follow
 	NavMeshAgent agent;		// Reference to our agent
-	CharacterStats myStatus;
-	CharacterStats playerStats;
+	public CharacterStats myStatus;
+	public CharacterStats playerStats;
 	// Get references
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
@@ -26,12 +26,12 @@ public class PlayerMotor : MonoBehaviour {
 			agent.SetDestination(target.position);
 			FaceTarget();
 		}
-		if(onFountain==true)
-		{
-			playerStats.Heal(2);
-		}
-		else playerStats.Heal(0);
-	}
+        if (onFountain == true)
+        {
+            playerStats.Heal(2);
+        }
+        else playerStats.Heal(0);
+    }
 	
 	public void MoveToPoint (Vector3 point)
 	{

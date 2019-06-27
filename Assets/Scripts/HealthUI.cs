@@ -9,7 +9,7 @@ public class HealthUI : MonoBehaviour {
     public GameObject uiPrefab;
     public Transform target;
     float visibleTime = 5;
-
+    public int MaxUI,CurrUI;
     float lastMadeVisibleTime;
     Transform ui;
     Image healthSlider;
@@ -32,6 +32,12 @@ public class HealthUI : MonoBehaviour {
 
         GetComponent<CharacterStats>().OnHealthChanged += OnHealthChanged;
 	}
+    
+    public void OnUIChange(int MaxUI, int CurrUI)
+    {
+        float healthPercent = (float)CurrUI / MaxUI;
+        healthSlider.fillAmount = healthPercent;
+    }
 
     void OnHealthChanged(int maxHealth, int currentHealth) {
         if (ui != null)

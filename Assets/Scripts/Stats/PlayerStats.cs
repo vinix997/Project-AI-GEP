@@ -11,10 +11,11 @@ public class PlayerStats : CharacterStats {
 		EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
 	}
 
+    
 
-	
-	// Called when an item gets equipped/unequipped
-	void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
+
+    // Called when an item gets equipped/unequipped
+    void OnEquipmentChanged (Equipment newItem, Equipment oldItem)
 	{
 		// Add new modifiers
 		if (newItem != null)
@@ -31,9 +32,12 @@ public class PlayerStats : CharacterStats {
 		}
 		
 	}
+    public override void ChangeUi()
+    {
+        base.ChangeUi();
+    }
 
-	
-	public override void Die()
+    public override void Die()
 	{
 		base.Die();
 		PlayerManager.instance.KillPlayer();
