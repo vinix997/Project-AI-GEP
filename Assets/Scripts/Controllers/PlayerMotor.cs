@@ -15,6 +15,8 @@ public class PlayerMotor : MonoBehaviour {
 	// Get references
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
+		myStatus=GetComponent<PlayerStats>();
+		playerStats=GetComponent<PlayerStats>();
 	}
 
 	void Update ()
@@ -30,7 +32,7 @@ public class PlayerMotor : MonoBehaviour {
         {
             playerStats.Heal(2);
         }
-        else playerStats.Heal(0);
+       
     }
 	
 	public void MoveToPoint (Vector3 point)

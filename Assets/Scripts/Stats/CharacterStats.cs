@@ -50,6 +50,7 @@ public class CharacterStats : MonoBehaviour {
 	{
 		if(currentHealth<=maxHealth)
 		currentHealth+=amount;
+		OnHealthChanged(maxHealth,currentHealth);
 	}
 
 	public virtual void Die ()

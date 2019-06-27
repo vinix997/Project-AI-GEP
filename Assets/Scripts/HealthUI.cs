@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterStats))]
 public class HealthUI : MonoBehaviour {
-
+    float healthPercent;
+   
     public GameObject uiPrefab;
     public Transform target;
     float visibleTime = 5;
-    public int MaxUI,CurrUI;
     float lastMadeVisibleTime;
     Transform ui;
     Image healthSlider;
@@ -33,11 +33,7 @@ public class HealthUI : MonoBehaviour {
         GetComponent<CharacterStats>().OnHealthChanged += OnHealthChanged;
 	}
     
-    public void OnUIChange(int MaxUI, int CurrUI)
-    {
-        float healthPercent = (float)CurrUI / MaxUI;
-        healthSlider.fillAmount = healthPercent;
-    }
+  
 
     void OnHealthChanged(int maxHealth, int currentHealth) {
         if (ui != null)
@@ -45,15 +41,16 @@ public class HealthUI : MonoBehaviour {
             ui.gameObject.SetActive(true);
             lastMadeVisibleTime = Time.time;
 
-            float healthPercent = (float)currentHealth / maxHealth;
-            healthSlider.fillAmount = healthPercent;
+             healthPercent = (float)currentHealth / maxHealth;
+             healthSlider.fillAmount = healthPercent;
             if (currentHealth <= 0)
             {
                 Destroy(ui.gameObject);
             }
         }
     }
-
+    
+    
     void LateUpdate () {
         if (ui != null)
         {
@@ -65,5 +62,7 @@ public class HealthUI : MonoBehaviour {
                 ui.gameObject.SetActive(false);
             }
         }
+        
+        
 	}
 }
