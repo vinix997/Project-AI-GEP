@@ -8,11 +8,8 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMotor : MonoBehaviour {
 	public bool onFountain;
-
-	public GameObject healEffect;
 	Transform target;		// Target to follow
 	NavMeshAgent agent;		// Reference to our agent
-	float healTimer;
 	public CharacterStats myStatus;
 	public CharacterStats playerStats;
 	// Get references
@@ -33,17 +30,8 @@ public class PlayerMotor : MonoBehaviour {
 		}
         if (onFountain == true)
         {
-			
-			healTimer+=Time.deltaTime;
-			if(healTimer>=3)
-			{
-				Instantiate(healEffect,transform.position,Quaternion.identity);
-            playerStats.Heal(10);
-			healTimer=0;
-			}
-
+            playerStats.Heal(2);
         }
-	
        
     }
 	
@@ -82,7 +70,6 @@ public class PlayerMotor : MonoBehaviour {
 		if(other.tag=="HealFountain")
 		{
 			onFountain=true;
-			
 		}
 	}
 	void OnTriggerExit(Collider other)

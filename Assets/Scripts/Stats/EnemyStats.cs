@@ -5,8 +5,7 @@ using UnityEngine;
 /* Keeps track of enemy stats, loosing health and dying. */
 
 public class EnemyStats : CharacterStats {
-	
-	
+
 	public override void Die()
 	{
 		base.Die();
@@ -14,6 +13,8 @@ public class EnemyStats : CharacterStats {
 		// Add ragdoll effect / death animation
 
 		Destroy(gameObject);
+		Debug.Log("Dieded");
+		
 	}
 
 }
