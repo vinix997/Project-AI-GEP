@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour {
 	#region Singleton
 
 	public static PlayerManager instance;
-
+	public GameObject loseScreen;
 	void Awake ()
 	{
 		instance = this;
@@ -22,7 +22,7 @@ public class PlayerManager : MonoBehaviour {
 
 	public void KillPlayer ()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		loseScreen.SetActive(true);
 	}
 
 }

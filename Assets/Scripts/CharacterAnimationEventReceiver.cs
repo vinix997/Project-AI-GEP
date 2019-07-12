@@ -9,5 +9,6 @@ public class CharacterAnimationEventReceiver : MonoBehaviour {
     public void AttackHitEvent()
     {
         combat.AttackHit_AnimationEvent();
+        
     }
 }

@@ -19,10 +19,12 @@ public class SceneManagement : MonoBehaviour {
 	}
 	public void Play()
 	{
+		Time.timeScale = 1;
 		SceneManager.LoadScene("Main");
 	}
 	public void Back()
 	{
+		Time.timeScale = 1;
 		SceneManager.LoadScene("Menu");
 	}
 	public void OpenOption()

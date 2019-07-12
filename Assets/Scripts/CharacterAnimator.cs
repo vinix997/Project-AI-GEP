@@ -37,6 +37,7 @@ public class CharacterAnimator : MonoBehaviour {
         animator.SetFloat("speedPercent", speedPercent, locomationAnimationSmoothTime, Time.deltaTime);
 
         animator.SetBool("inCombat", combat.InCombat);
+        
 	}
 
     protected virtual void OnAttack()
@@ -44,5 +45,6 @@ public class CharacterAnimator : MonoBehaviour {
         animator.SetTrigger("attack");
         int attackIndex = Random.Range(0, currentAttackAnimSet.Length);
         overrideController[replaceableAttackAnim.name] = currentAttackAnimSet[attackIndex];
+
     }
 }
