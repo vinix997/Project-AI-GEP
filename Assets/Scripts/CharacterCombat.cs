@@ -9,9 +9,10 @@ public class CharacterCombat : MonoBehaviour {
 	private float attackCooldown = 0f;
     const float combatCooldown = 5;
     float lastAttackTime;
-
+    public float offsphere = 0;
+    public float spherecool = 0;
 	public float attackDelay = .6f;
-
+    Collider sphere;
     public bool InCombat { get; private set; }
 	public event System.Action OnAttack;
 	public bool status;
@@ -21,16 +22,42 @@ public class CharacterCombat : MonoBehaviour {
 	void Start ()
 	{
 		myStats = GetComponent<CharacterStats>();
+        sphere = GetComponent<SphereCollider>();
 	}
 
 	void Update ()
 	{
-		attackCooldown -= Time.deltaTime;
+       
+        attackCooldown -= Time.deltaTime;
+        splashAttack();
+    }
+    private void splashAttack()
+    {
+        if (gameObject.tag == "Player")
+        {
+            offsphere -= Time.deltaTime;
+            spherecool -= Time.deltaTime;
+            if (offsphere <= 0)
+                sphere.enabled = false;
+            if (Input.GetKeyDown("space") && spherecool < 0)
+            {
+                sphere.enabled = true;
+                offsphere = .01f;
+                spherecool = 3f;
+            }
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            opponentStats = other.GetComponent<CharacterStats>();
+            opponentStats.TakeDamage(myStats.damage.GetValue());
+        }
+        
+    }
 
-      
-	}
-
-	public void Attack (CharacterStats targetStats)
+    public void Attack (CharacterStats targetStats)
 	{
 		if (attackCooldown <= 0f)
 		{
@@ -44,6 +71,7 @@ public class CharacterCombat : MonoBehaviour {
 		}
 		
 	}
+
 
     public void AttackHit_AnimationEvent()
     {
