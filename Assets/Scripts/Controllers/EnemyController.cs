@@ -8,10 +8,11 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour {
 
 	public float lookRadius = 10f;	// Detection range for player
-
+    public bool isWander = true;
 	Transform target;	// Reference to the player
 	NavMeshAgent agent; // Reference to the NavMeshAgent
 	CharacterCombat combat;
+    public float newDest = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -22,12 +23,21 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        newDest -= Time.deltaTime;
+        if (isWander == true)
+            if (newDest < 0)
+            {
+                agent.SetDestination(new Vector3(Random.Range(-1, -15), Random.Range(-1, -15), Random.Range(-1, -10)));
+                newDest = 2.5f;
+            }
+           
 		// Distance to the target
 		float distance = Vector3.Distance(target.position, transform.position);
 
 		// If inside the lookRadius
 		if (distance <= lookRadius)
 		{
+            isWander = false;
 			// Move towards the target
 			agent.SetDestination(target.position);
 
@@ -42,7 +52,11 @@ public class EnemyController : MonoBehaviour {
 
 				FaceTarget();	// Make sure to face towards the target
 			}
-		}
+        }
+        else
+        {
+            isWander = true;
+        }
 	}
 
 	// Rotate to face the target
