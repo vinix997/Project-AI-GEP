@@ -4,6 +4,8 @@ using UnityEngine;
 
 /* Handles interaction with the Enemy */
 
+//Author : Peter Andrew
+
 [RequireComponent(typeof(CharacterStats))]
 public class Enemy : Interactable {
 
