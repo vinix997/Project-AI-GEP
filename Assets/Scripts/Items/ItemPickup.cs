@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Author : Chandra Delon
 public class ItemPickup : Interactable {
 
 	public Item item;	// Item to put in the inventory on pickup

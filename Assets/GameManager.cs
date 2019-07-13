@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Author : Chandra Delon
 public class GameManager : MonoBehaviour {
 	public Text scoreText;
 	 private float timeLimit;

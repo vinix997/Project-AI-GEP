@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-/* Controls the Enemy AI */
-
+//Author : Peter Andrew
 public class EnemyController : MonoBehaviour {
 
 	public float lookRadius = 10f;	// Detection range for player

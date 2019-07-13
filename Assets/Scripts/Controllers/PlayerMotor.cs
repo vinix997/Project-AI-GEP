@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-/* This component moves our player using a NavMeshAgent. */
+//Author : Chandra Delon
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerMotor : MonoBehaviour {
@@ -31,7 +31,13 @@ public class PlayerMotor : MonoBehaviour {
 			agent.SetDestination(target.position);
 			FaceTarget();
 		}
-        if (onFountain == true)
+       Healing();
+	
+       
+    }
+	public void Healing()
+	{
+		 if (onFountain == true)
         {
 			
 			healTimer+=Time.deltaTime;
@@ -43,9 +49,7 @@ public class PlayerMotor : MonoBehaviour {
 			}
 
         }
-	
-       
-    }
+	}
 	
 	public void MoveToPoint (Vector3 point)
 	{

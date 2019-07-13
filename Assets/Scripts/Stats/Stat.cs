@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Class used for all stats where we want to be able to add/remove modifiers */
-
+//Author : Chandra Delon
 [System.Serializable]
 public class Stat {
 	

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Author : Chandra Delon
 public class Inventory : MonoBehaviour {
 
 	#region Singleton

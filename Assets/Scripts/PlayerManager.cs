@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/* Keeps track of the player */
+//Author : Chandra Delon
 
 public class PlayerManager : MonoBehaviour {
 

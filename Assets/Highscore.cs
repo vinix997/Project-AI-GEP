@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Author : Chandra Delon
 public class Highscore : MonoBehaviour {
 	[SerializeField] private Text score;
 	// Use this for initialization

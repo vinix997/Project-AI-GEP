@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+//Author : Chandra Delon
 public class Toggler : MonoBehaviour {
 
 	public Toggle onSwitch;

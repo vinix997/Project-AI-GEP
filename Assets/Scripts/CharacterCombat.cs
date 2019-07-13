@@ -39,7 +39,7 @@ public class CharacterCombat : MonoBehaviour {
             spherecool -= Time.deltaTime;
             if (offsphere <= 0)
                 sphere.enabled = false;
-            if (Input.GetKeyDown("space") && spherecool < 0)
+            if (Input.GetMouseButtonDown(1) && spherecool < 0)
             {
                 sphere.enabled = true;
                 offsphere = .01f;
@@ -47,7 +47,7 @@ public class CharacterCombat : MonoBehaviour {
             }
         }
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Enemy")
         {

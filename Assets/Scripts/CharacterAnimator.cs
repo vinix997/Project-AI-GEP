@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+//Author : Chandra Delon
 public class CharacterAnimator : MonoBehaviour {
 
     public AnimationClip replaceableAttackAnim;
