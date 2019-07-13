@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author : Peter Andrew
+
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour {
 
