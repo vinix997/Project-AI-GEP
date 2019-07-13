@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-	public float spawnTimer=30f;
+	private float spawnTimer;
 	float cooldown=0;
 	public GameObject Enemy;
 	public Transform target;
 	// Use this for initialization
 	void Start () {
 		target = GameObject.FindGameObjectWithTag("SpawnFountain").transform;
+		spawnTimer=0;
 			}
 	
 	// Update is called once per frame
@@ -19,6 +20,7 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			cooldown=0;
 			Instantiate(Enemy,transform.position,Quaternion.identity);
+			spawnTimer=12f;
 		}
 	}
 }
