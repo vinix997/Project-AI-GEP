@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Keep track of equipment. Has functions for adding and removing items. */
+//Author : Chandra Delon
 
 public class EquipmentManager : MonoBehaviour {
 

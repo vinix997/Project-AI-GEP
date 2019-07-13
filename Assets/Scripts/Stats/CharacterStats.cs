@@ -1,7 +1,6 @@
 using UnityEngine;
 
-/* Base class that player and enemies can derive from to include stats. */
-
+//Author : Chandra Delon, Christian Ferianto
 public class CharacterStats : MonoBehaviour {
 
 	// Health
@@ -59,5 +58,6 @@ public class CharacterStats : MonoBehaviour {
 		// This method is meant to be overwritten
 		Debug.Log(transform.name + " died.");
 	}
+	
 
 }

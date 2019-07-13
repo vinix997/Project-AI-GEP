@@ -9,7 +9,8 @@ public class Toggler : MonoBehaviour {
 	public Toggle onSwitch;
 	public void Start()
 	{
-		LoadSetting();		
+		LoadSetting();	
+		onSwitch.isOn=true;
 	}
 	public void Switching()
 	{

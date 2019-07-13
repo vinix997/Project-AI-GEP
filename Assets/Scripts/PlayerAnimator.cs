@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Author : Christian Ferianto
 public class PlayerAnimator : CharacterAnimator {
 
     public WeaponAnimations[] weaponAnimations;
